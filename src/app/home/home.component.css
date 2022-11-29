@@ -1,0 +1,30 @@
+
+.book1{
+    border-radius: 50px;
+    background-color: lightblue;
+    border: 1px solid lightblue; 
+    margin: 7px;
+}
+.Gen{
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.card-wrapper {
+    display: flex;
+}
+.card{
+    margin: 5px;
+    height: 300px;
+    width: 150px;
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.book-view {
+    text-decoration: none;
+    color: black;
+}

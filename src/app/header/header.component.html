@@ -1,0 +1,31 @@
+<header class="bg-success shadow-sm">
+    <div class="main-content container">
+        <div class="navbar  " >
+            <strong style="font-size:30px;color: white;">Phillipi learning Pool</strong>
+            <div id="links" *ngIf="isLoggedIn">
+                <a routerLink="/home">Home</a>
+                <a routerLink="/dashboard">Dashboard</a>
+                <a routerLink="/bookings">Bookings</a>
+                
+            </div>
+           
+            <!-- <div class="form">
+                <input type="text"class="form" placeholder="search" [(ngModel)]="searchTerm" (keyup)="search($event)">
+            </div> -->
+            <button routerLink="" class="btn btn-primary">
+                <i class="fas fa-open-book"></i>
+                <div style="font-size:10px;" class="badge bg-danger">1</div>
+            </button>
+            <span  class="fas fa-search search-icon"> </span>
+            <div class="btn-group" role="group" aria-label="Basic example" *ngIf="!isLoggedIn">
+                <button  class="signup text-white" type="button"><a routerLink="/register">Sign up</a>
+                </button>
+                <button class="login"type="button" routerLink="/login" >login</button>
+                
+              </div>
+            
+            
+            <button class="login"type="button" (click)="logout()" *ngIf="isLoggedIn">logout</button>
+        </div> 
+    </div>
+</header>
