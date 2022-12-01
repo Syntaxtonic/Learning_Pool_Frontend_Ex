@@ -25,3 +25,11 @@
     color: white;
     background-color: green; 
 }
+@media only screen and (max-width:500px) {
+    .signup{
+        display:none;
+    }
+    .login{
+        display:none;
+    }
+}
