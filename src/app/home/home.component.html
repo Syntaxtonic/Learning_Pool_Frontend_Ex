@@ -1,0 +1,41 @@
+<h3>Genres</h3>
+
+
+<div class="Gen">
+    <button class="book1" (click)="getAll()">All</button>
+    <button class="book1" (click)="getByCategory('Arts & Entertainment')">Arts & Entertainment</button>
+    <button class="book1" (click)="getByCategory('Biographies & memoirs')">Biographies & memoirs</button>
+    <button class="book1" (click)="getByCategory('Business & Investing')">Business & Investing</button>
+    <button class="book1" (click)="getByCategory('Children')">Children's books</button>
+    <button class="book1" (click)="getByCategory('Comics')">Comics</button>
+    <button class="book1" (click)="getByCategory('Computers & technology')">Computers & technology</button>
+    <button class="book1" (click)="getByCategory('Fiction')">Fiction & literature</button>
+    <button class="book1" (click)="getByCategory('Health, mind and body')">Health, mind and body</button>
+    <button class="book1" (click)="getByCategory('Novel')">Novel</button>
+    <button class="book1" (click)="getByCategory('Romance')">Romance</button>
+    <button class="book1" (click)="getByCategory('Science')">Science fiction & fantasy</button>
+</div>
+<hr>
+
+<div class="container" *ngIf="books">
+    <div class="list-books" *ngIf="books.length; else block">
+        <div class="card-wrapper" >
+            <div class="card" *ngFor="let book of books">
+            <a class="book-view" routerLink="/book-detail/{{book.id}}">
+                <img [src]="book.image" class="card-img-top" [alt]="book.title">
+                <div class="card-body">
+                  <h6 class="card-title">{{ book.title }}</h6>
+                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </a>
+                
+              </div>
+        </div>
+    </div>
+    <ng-template #block>
+        <div class="empy-response">
+            <h4>We currently don't have these on the shelf</h4>
+        </div>
+    </ng-template>
+</div>
