@@ -27,4 +27,8 @@ export class BookDetailComponent implements OnInit {
       }
     })
   }
+
+  booking(id: string): void {
+    this.bookService.makeBooking(id).subscribe(res => console.log(res))
+  }
 }

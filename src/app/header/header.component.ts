@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { cartService } from 'src/app/cart.service';
+import { CartService } from 'src/app/service/cart.service';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
@@ -15,17 +15,17 @@ export class HeaderComponent implements OnInit {
 
   public totalItem:number=0;
   public searchTerm:string='';
-  constructor(private CartService:cartService, private authService: AuthService, private storageService: TokenStorageService) { }
+  constructor(private cartService:CartService, private authService: AuthService, private storageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.CartService.getProduct()
-    .subscribe(res=>{
-      this.totalItem=res.length;
-    })
+    // this.cartService.getBook()
+    // .subscribe((res:any)=>{
+    //   this.totalItem=res.length;
+    // })
   }
   search(event:any){
     this.searchTerm=(event.target as HTMLInputElement).value;
-    this.CartService.search.next(this.searchTerm)
+    this.cartService.search.next(this.searchTerm)
     
   }
 

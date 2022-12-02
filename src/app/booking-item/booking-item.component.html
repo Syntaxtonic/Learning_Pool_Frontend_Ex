@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="book-details" *ngIf="book">
+        <div class="card" style="width: 100px;">
+            <img [src]="book.image" class="card-img-top" alt="..." width="100" height="100">
+            <div class="card-body">
+              <h4 class="card-title" style="font-size: 14px;">{{book.title}} </h4>
+              <!-- <p class="card-text">{{book.description}}</p> -->
+              <!-- <button class="btn btn-primary" (click)="booking(book.id)">Make Your Booking</button> -->
+            </div>
+          </div>
+    </div>
+</div>

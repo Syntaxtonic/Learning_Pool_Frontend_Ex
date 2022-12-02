@@ -4,18 +4,21 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class cartService {
+export class CartService {
+  getBook() {
+    throw new Error('Method not implemented.');
+  }
   public cartItemList: any=[]
-  public productList=new BehaviorSubject<any>([]);
+  public bookList=new BehaviorSubject<any>([]);
   public search=new BehaviorSubject<string>("");
 
   constructor() {}
   getProduct(){
-    return this.productList.asObservable();
+    return this.bookList.asObservable();
   }
   setProduct(product :any){
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
+    // this.cartItemList.push(book);
+    this.bookList.next(this.cartItemList);
     this.getTotalPrice(); 
   }
   getTotalPrice():number{
@@ -31,11 +34,11 @@ export class cartService {
         this.cartItemList.splice(index,1);
       }
     })
-    this.productList.next(this.cartItemList);
+    this.bookList.next(this.cartItemList);
   }
   removeAllCart(){
     this.cartItemList=[]
-    this.productList.next(this.cartItemList);
+    this.bookList.next(this.cartItemList);
   }
 }
 

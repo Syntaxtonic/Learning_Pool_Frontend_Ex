@@ -1,4 +1,4 @@
-<ng-container *ngIf="product.length !=0" >
+<ng-container *ngIf="book.length !=0" >
     <div class="container">
         <div class="card-table">
             <div class="cart-product">
@@ -15,7 +15,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of product; let i=index">
+                        <tr *ngFor="let item of book; let i=index">
                             <td>{{i+1}}</td>
                             <td>{{item.title}}</td>
                             <td><img style="width:100px" src="{{item.image}}" alt=""></td>
@@ -28,7 +28,7 @@
                             <td colspan="4"></td>
                             <td><button (click)="emptycart()" class="btn btn-danger">empty Cart</button></td>
                             <td><button routerLink="/product" class="btn btn-primary">Shop More</button></td>
-                            <td><button class="btn btn-dark" (click)="product = []; checkedOut = true;" >Checkout</button></td>
+                            <td><button class="btn btn-dark" (click)="book= []; checkedOut = true;" >Checkout</button></td>
                             <td><strong>Grand Total:R {{grandTotal}}</strong></td>
                         </tr>
                     </tbody>
@@ -42,24 +42,24 @@
    
 </ng-container>
 
-<ng-container *ngIf="!checkedOut && product.length ==0 ">
+<ng-container *ngIf="!checkedOut && book.length ==0 ">
     
     <div class="container">
         <div class="card">
-            <h5 class="card-title">My Cart</h5>
+            <h5 class="card-title">My bookings</h5>
         </div>
         <div class="center">
-            <img src="https://i.postimg.cc/L5dT5qsR/download.png"height="90px"alt="">
-            <h4>Your cart is empty</h4>
-            <h6>Add items to it</h6>
-            <button routerLink="/product" class="btn btn-primary">Shop now</button>
+            <img src=""height="90px"alt="">
+            <h4>You have no bookings</h4>
+            <h6>Add bookings</h6>
+            <button routerLink="/product" class="btn btn-primary">book now</button>
         </div>
     </div>
 
 </ng-container>
 
 <ng-container *ngIf="checkedOut">
-    <h3 *ngIf="checkedOut" class="alert alert-success">We still processing your order...</h3>
-    <small>Meanwhile you can check more products <a routerLink="/home">here.</a></small>
+    <h3 *ngIf="checkedOut" class="alert alert-success">Please come fetch your books at your nearest library</h3>
+    <small>Meanwhile you can view more books <a routerLink="/home">here.</a></small>
 </ng-container>
 

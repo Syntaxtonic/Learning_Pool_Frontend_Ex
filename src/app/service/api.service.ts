@@ -9,7 +9,7 @@ export class ApiService {
   private postsURL="http://localhost:4200/api/posts";
 
   constructor(private http:HttpClient) { }
-  getAll(){
+  getBook(){
     return this.http.get<any>(this.postsURL)
     .pipe(map((res:any)=>{
       return res;
