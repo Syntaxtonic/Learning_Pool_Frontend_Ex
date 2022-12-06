@@ -7,7 +7,7 @@
               <p class="card-text">{{book.description}}</p>
               <button class="btn btn-primary" (click)="booking(book.id)" *ngIf="currentUser.roles[0]!='ROLE_ADMIN' && !book.status" >Make Your Booking</button>
               <button class="btn btn-primary" (click)="booking(book.id)" *ngIf="currentUser.roles[0]!='ROLE_ADMIN' && book.status" disabled>Make Your Booking</button>
-              <button class="btn btn-primary" (click)="booking(book.id)" *ngIf="currentUser.roles[0]!='ROLE_ADMIN' && '{{ currentUser.books.includes(book.id)}}' && book.status" >Unbook</button>
+              <button class="btn btn-primary" (click)="booking(book.id)" *ngIf="currentUser.roles[0]!='ROLE_ADMIN' && '{{ user.books.includes(book.id)}}' && book.status" >Unbook</button>
               <strong><p *ngIf="book.status" class="text-success">This book is booked!</p></strong>
               <button class="btn btn-danger mr-2" (click)="deleteTutorial()" *ngIf="currentUser.roles[0]=='ROLE_ADMIN' ">
                 Delete

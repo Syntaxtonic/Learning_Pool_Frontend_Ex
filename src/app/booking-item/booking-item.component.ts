@@ -15,10 +15,33 @@ book: any
     this.bookService.getOneBook(this.id).subscribe({
       next: data => {
         this.book = data
+        console.log(this.book)
       }
 
     })
   }
 
+  booking(id: string): void {
+    this.bookService.makeBooking(id).subscribe(res => {
+      this.book.status = !this.book.status
+      console.log(this.book)
 
+      console.log(res)
+      this.update(this.book)
+    })
+  }
+
+  update(book: any) {
+    if(this.book)
+    this.bookService.update(this.book.id, book).subscribe({
+      next: data => {
+        console.log(data)
+        
+        
+      },
+      error: err => {
+        console.error(err)
+      }
+    })
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../_services/book.service';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -12,10 +13,13 @@ export class BookDetailComponent implements OnInit {
 
 
   book: any
+  user: any
+  test: any
   currentUser: any
   constructor( 
     private route: ActivatedRoute, 
     private bookService: BookService, 
+    private userService: UserService,
     private router: Router,
     private storageService: TokenStorageService 
     ) { }
@@ -24,6 +28,18 @@ export class BookDetailComponent implements OnInit {
     this.currentUser = this.storageService.getUser();
     console.log(this.currentUser)
     this.getABook()
+    this.userService.userProfile(this.currentUser.id).subscribe({
+      next: data => {
+        this.user = data
+        console.log("Hello world")
+        if(this.user.books.length){
+          this.test = this.user.books.includes(this.book.id)
+          console.log(this.test)
+        }
+        
+        console.log(data)
+      }
+    })
   
   }
 
@@ -54,6 +70,8 @@ export class BookDetailComponent implements OnInit {
     this.bookService.update(this.book.id, book).subscribe({
       next: data => {
         console.log(data)
+        
+        
       },
       error: err => {
         console.error(err)
