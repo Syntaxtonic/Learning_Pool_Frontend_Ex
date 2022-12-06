@@ -19,18 +19,22 @@
 
 <div class="container" *ngIf="books">
     <div class="list-books" *ngIf="books.length; else block">
-        <div class="card-wrapper" >
-            <div class="card" *ngFor="let book of books">
-            <a class="book-view" routerLink="/book-detail/{{book.id}}">
-                <img [src]="book.image" class="card-img-top" [alt]="book.title">
-                <div class="card-body">
-                  <h6 class="card-title">{{ book.title }}</h6>
-                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                </div>
-            </a>
-                
-              </div>
+        <div class="row d-flex">
+            <div class="col-3" *ngFor="let book of books">
+                <!-- <div class="card-wrapper" > -->
+                    <div class="card" >
+                    <a class="book-view" routerLink="/book-detail/{{book.id}}">
+                        <img [src]="book.image" class="card-img-top" [alt]="book.title">
+                        <div class="card-body">
+                          <h6 class="card-title">{{ book.title }}</h6>
+                          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </a>
+                        
+                      </div>
+                <!-- </div> -->
+            </div>
         </div>
     </div>
     <ng-template #block>
