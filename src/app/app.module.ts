@@ -15,6 +15,8 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookingItemComponent } from './booking-item/booking-item.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     CartComponent,
     RegisterComponent,
     LoginComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookingItemComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

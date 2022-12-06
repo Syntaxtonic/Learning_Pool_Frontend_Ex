@@ -5,7 +5,10 @@
             <div class="card-body">
               <h5 class="card-title">{{book.title}} </h5>
               <p class="card-text">{{book.description}}</p>
-              <button class="btn btn-primary">Make Your Booking</button>
+              <button class="btn btn-primary" (click)="booking(book.id)" *ngIf="currentUser.roles[0]!='ROLE_ADMIN'">Make Your Booking</button>
+              <button class="btn btn-danger mr-2" (click)="deleteTutorial()" *ngIf="currentUser.roles[0]=='ROLE_ADMIN' ">
+                Delete
+              </button>
             </div>
           </div>
     </div>

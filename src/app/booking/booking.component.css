@@ -7,7 +7,7 @@ body{
 }
 .container{
     background-color: white;
-    margin: 200px;
+    margin: 50px;
     box-shadow: rgba(0,0,0,.1);
     display: grid;
     grid-template-columns: 40% 60%;
@@ -17,7 +17,7 @@ body{
     background-color: rgba(0,0,0,.95);
     color:white;
     padding: 50px;
-    outline: 3px dashed lightblue;
+    outline: 3px dashed lightgreen;
     outline-offset: -30px;
     text-align: center;
 }

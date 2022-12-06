@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../_services/book.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,9 +11,17 @@ import { BookService } from '../_services/book.service';
 export class BookDetailComponent implements OnInit {
 
   book: any
-  constructor( private route: ActivatedRoute, private bookService: BookService ) { }
+  currentUser: any
+  constructor( 
+    private route: ActivatedRoute, 
+    private bookService: BookService, 
+    private router: Router,
+    private storageService: TokenStorageService 
+    ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.storageService.getUser();
+    console.log(this.currentUser)
     this.getABook()
   }
 
@@ -26,5 +35,20 @@ export class BookDetailComponent implements OnInit {
         console.log(this.book)
       }
     })
+  }
+
+  booking(id: string): void {
+    this.bookService.makeBooking(id).subscribe(res => console.log(res))
+  }
+
+  deleteTutorial(): void {
+    this.bookService.delete(this.book.id)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.router.navigate(['/home']);
+        },
+        error: (e) => console.error(e)
+      });
   }
 }
