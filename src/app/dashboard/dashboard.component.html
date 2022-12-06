@@ -3,6 +3,7 @@
     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
   >
     <h1 class="h2">{{ currentUser.username }}`s Dashboard</h1>
+    <a class="btn btn-primary" routerLink="/add-book" *ngIf="currentUser.roles[0]=='ROLE_ADMIN' ">Add Book</a>
     <div class="book-item" >
       <app-booking-item *ngFor="let book of books" [id]="book"></app-booking-item>
     </div>

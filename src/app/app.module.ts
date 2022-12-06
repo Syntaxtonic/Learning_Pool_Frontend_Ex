@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookingItemComponent } from './booking-item/booking-item.component';
+import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BookingItemComponent } from './booking-item/booking-item.component';
     RegisterComponent,
     LoginComponent,
     BookDetailComponent,
-    BookingItemComponent
+    BookingItemComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

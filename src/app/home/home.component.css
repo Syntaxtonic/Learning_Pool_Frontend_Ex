@@ -34,3 +34,24 @@
     text-decoration: none;
     color: black;
 }
+
+@media only screen and (max-width: 390px){
+    .card-img-top{
+        width: 50px;
+
+    }
+
+    .card{
+        /* margin: 5px; */
+        height: 180px;
+        width: 90px;
+        margin-bottom: 20px;
+    }
+    .card-title{
+        font-size: 12px;
+    }
+    .card-body{
+        height: 30px;
+        padding: 4px;
+    }
+}

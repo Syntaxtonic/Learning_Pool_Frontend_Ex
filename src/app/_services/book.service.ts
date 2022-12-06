@@ -32,6 +32,23 @@ export class BookService {
     return this.http.get<any[]>(this.baseUrl+`?category=${category}`)
   }
 
+  
+  create(data: any): Observable<any> {
+    return this.http.post(this.baseUrl, data);
+  }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, data);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(this.baseUrl);
+  }
+
   makeBooking(id: string): Observable<any> {
     return this.http.post(this.baseUrl+id, {}, httpOtions)
   }

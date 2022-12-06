@@ -15,10 +15,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    console.log(this.currentUser.id)
+
+    console.log(this.currentUser)
     if(this.currentUser)
     this.userService.userProfile(this.currentUser.id).subscribe({
       next: data => {
+        console.log(data)
         this.books = data.books
         console.table(this.books)
       },
