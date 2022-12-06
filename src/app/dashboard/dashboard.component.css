@@ -88,3 +88,9 @@ hr .new1 {
 .date {
     background-color: #ccc
 }
+.add{
+    border-radius: 10px;
+    padding:8px;
+    color: white;
+    background-color: blue;
+}
