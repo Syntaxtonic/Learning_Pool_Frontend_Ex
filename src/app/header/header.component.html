@@ -20,9 +20,11 @@
             </button> -->
             
             <div class="btn-group" role="group" aria-label="Basic example" *ngIf="!isLoggedIn">
-                <button  class="signup text-white" type="button"><a routerLink="/register">Sign up</a>
-                </button>
-                <button class="login"type="button" routerLink="/login" >login</button>
+                <a  class="signup text-white" type="button" routerLink="/register">
+                    Sign up |
+                </a> 
+                <!-- <small class="text-white"></small> -->
+                <a class="login" type="button" routerLink="/login">login</a>
               </div>
             
             
