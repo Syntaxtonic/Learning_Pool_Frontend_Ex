@@ -2,6 +2,9 @@
     display: flex;
    
 }
+a {
+    text-decoration: none;
+}
 #links a{
     color: white;
     display: flex;
@@ -14,16 +17,16 @@
     color: lightskyblue;  
 }
 .signup{
-    border-radius: 50px;
-    padding: 8px;
+     /* border-radius: 50px; */
+    padding: 8px; 
     color: white;
-    background-color: blue;
+    /* background-color: blue;  */
 }
 .login{
-    border-radius: 50px;
-    padding: 8px;
+    /* border-radius: 50px; */
+    padding: 8px 4px 8px 0;
     color: white;
-    background-color: green; 
+    /* background-color: green;  */
 }
 @media only screen and (max-width:500px) {
     .signup{
