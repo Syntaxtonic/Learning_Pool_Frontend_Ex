@@ -11,17 +11,29 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() isLoggedIn: any
+  // @Input() isLoggedIn: any
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
 
   public totalItem:number=0;
   public searchTerm:string='';
   constructor(private cartService:CartService, private authService: AuthService, private storageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    // this.cartService.getBook()
-    // .subscribe((res:any)=>{
-    //   this.totalItem=res.length;
-    // })
+    this.isLoggedIn = this.storageService.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.username = user.username;
+    }
   }
   search(event:any){
     this.searchTerm=(event.target as HTMLInputElement).value;
@@ -33,15 +45,17 @@ export class HeaderComponent implements OnInit {
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
-        this.isLoggedIn = false
-        window.sessionStorage.clear()
+        this.storageService.clean()
+        window.location.replace('/login');
+        // this.isLoggedIn = false
+        // window.sessionStorage.clear()
       },
       error: err => {
         console.log(err);
       }
     });
     
-    window.location.replace('/login');
+    
   }
 
 }

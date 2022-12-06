@@ -43,7 +43,6 @@ public token(): string | null{
     if (user) {
       return true;
     }
-
     return false;
   }
 }

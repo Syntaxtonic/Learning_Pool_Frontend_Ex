@@ -33,3 +33,14 @@
         display:none;
     }
 }
+@media only screen and(max-width:500px){
+    .name{
+        justify-content: center;
+    }
+}
+.logout{
+    border-radius: 50px;
+    padding: 8px;
+    color: white;
+    background-color: green;
+}
