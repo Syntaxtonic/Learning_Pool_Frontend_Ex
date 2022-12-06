@@ -18,12 +18,16 @@ export class HeaderComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
 
+  currentUser: any
+
   public totalItem:number=0;
   public searchTerm:string='';
   constructor(private cartService:CartService, private authService: AuthService, private storageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.storageService.isLoggedIn();
+
+    this.currentUser = this.storageService.getUser();
 
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();

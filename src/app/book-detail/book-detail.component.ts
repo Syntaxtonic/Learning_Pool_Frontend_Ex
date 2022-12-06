@@ -10,6 +10,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class BookDetailComponent implements OnInit {
 
+
   book: any
   currentUser: any
   constructor( 
@@ -23,6 +24,7 @@ export class BookDetailComponent implements OnInit {
     this.currentUser = this.storageService.getUser();
     console.log(this.currentUser)
     this.getABook()
+  
   }
 
   getABook(){
@@ -38,7 +40,25 @@ export class BookDetailComponent implements OnInit {
   }
 
   booking(id: string): void {
-    this.bookService.makeBooking(id).subscribe(res => console.log(res))
+    this.bookService.makeBooking(id).subscribe(res => {
+      this.book.status = !this.book.status
+      console.log(this.book)
+
+      console.log(res)
+      this.update(this.book)
+    })
+  }
+
+  update(book: any) {
+    if(this.book)
+    this.bookService.update(this.book.id, book).subscribe({
+      next: data => {
+        console.log(data)
+      },
+      error: err => {
+        console.error(err)
+      }
+    })
   }
 
   deleteTutorial(): void {

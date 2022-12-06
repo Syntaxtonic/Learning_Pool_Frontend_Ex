@@ -22,8 +22,8 @@
         <div class="row d-flex">
             <div class="col-3" *ngFor="let book of books">
                 <!-- <div class="card-wrapper" > -->
-                    <div class="card" >
-                    <a class="book-view" routerLink="/book-detail/{{book.id}}">
+                    <div class="card" [class.card-selected]="book.status">
+                    <a class="book-view" routerLink="/book-detail/{{book.id}}" >
                         <img [src]="book.image" class="card-img-top" [alt]="book.title">
                         <div class="card-body">
                           <h6 class="card-title">{{ book.title }}</h6>

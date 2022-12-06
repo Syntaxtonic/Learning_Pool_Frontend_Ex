@@ -34,6 +34,9 @@
     text-decoration: none;
     color: black;
 }
+.card-selected {
+    opacity: 0.1;
+}
 
 @media only screen and (max-width: 390px){
     .card-img-top{
