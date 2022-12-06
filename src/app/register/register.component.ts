@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       next: data => {
         console.log(data);this.isSuccessful = true;
         this.isSignUpFailed = false;
-        window.location.replace('/home')
+        window.location.replace('/login')
       },
       error: err => {
         this.errorMessage = err.error.message;
