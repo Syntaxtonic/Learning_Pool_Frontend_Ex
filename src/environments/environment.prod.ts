@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseApi: "https://learning-pool-backend.vercel.app/api"
 };

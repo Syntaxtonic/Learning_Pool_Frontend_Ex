@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const API_URL = 'http://localhost:8050/api/test/';
-const baseUrl = 'http://localhost:8050/api/users/'
+import { environment } from 'src/environments/environment';
+const API_URL = environment.baseApi+'/test/';
+const baseUrl = environment.baseApi+'/users/'
 @Injectable({
   providedIn: 'root'
 })

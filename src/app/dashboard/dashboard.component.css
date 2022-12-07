@@ -12,7 +12,8 @@
     justify-content: space-evenly;
 }
 .image img {
-    transition: all 0.5s
+    transition: all 0.5s;
+    border-radius: 50%;
 }
 
 .card:hover .image img {
