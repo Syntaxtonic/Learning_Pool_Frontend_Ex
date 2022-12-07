@@ -21,7 +21,7 @@ book: any
     })
   }
 
-  booking(id: string): void {
+  unBook(id: string): void {
     this.bookService.makeBooking(id).subscribe(res => {
       this.book.status = !this.book.status
       console.log(this.book)

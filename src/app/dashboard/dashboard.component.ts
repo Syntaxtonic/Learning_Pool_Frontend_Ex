@@ -25,9 +25,13 @@ export class DashboardComponent implements OnInit {
     this.currentUser = this.storageService.getUser();
 
     console.log(this.currentUser)
-    if(!this.currentUser){
-      console.log('out')
-      window.location.replace('/login')
+    if(this.currentUser.roles[0] == 'ROLE_ADMIN'){
+      this.bookService.getAllBooks().subscribe({
+        next: data => {
+          this.books = data.filter(ele => ele.status == true)
+          console.log(this.books)
+        }
+      })
     } else {
       
       this.userService.userProfile(this.currentUser.id).subscribe({
@@ -47,7 +51,7 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  booking(id: string): void {
+  unBook(id: string): void {
     this.bookService.makeBooking(id).subscribe(res => {
       this.book.status = !this.book.status
       console.log(this.book)

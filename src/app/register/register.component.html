@@ -3,7 +3,7 @@
     <form name="form" (ngSubmit)="onSubmit()">
 
         <h1 class="h3 mb-3 fw-normal">Create Account</h1>
-
+        <hr>
         <div class="form-floating">
             <input type="text" class="form-control"  [(ngModel)]="form.username" name="username"
                 id="username" placeholder="Username">
@@ -23,7 +23,7 @@
             <div *ngIf="lastname.invalid&&lastname.dirty" class="aler alert-danger">Lastname required </div>
         </div> -->
         <div class="form-floating">
-            <input type="text" class="form-control" #email="ngModel" [(ngModel)]="form.email" name="email" id="email"
+            <input type="text" class="form-control my-2" #email="ngModel" [(ngModel)]="form.email" name="email" id="email"
                 placeholder="Email">
             <label for="email">Email</label>
             <!-- <div *ngIf="firstname.invalid&&firstname.dirty" class="aler alert-danger">Firstname required </div> -->
@@ -37,7 +37,7 @@
         <input type="text " class="form-control" #type="ngModel" [(ngModel)]="form.type" name="type" id="type" hidden>
 
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+        <button class="w-100 btn btn-lg btn-success" type="submit">Register</button>
           <small> Already have an account ? <a [routerLink]="['/login']">login</a></small> 
 
     </form>
