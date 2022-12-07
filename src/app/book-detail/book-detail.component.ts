@@ -15,6 +15,7 @@ export class BookDetailComponent implements OnInit {
   book: any
   user: any
   test: any
+  booker: any
   currentUser: any
   constructor( 
     private route: ActivatedRoute, 
@@ -50,9 +51,16 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getOneBook(`${id}`).subscribe({
       next: data => {
         this.book = data
+        this.userService.findUserByBookId(data.id).subscribe({
+          next: results => {
+            this.booker = results
+            console.log(this.booker)
+          }
+        })
         console.log(this.book)
       }
     })
+    
   }
 
   booking(id: string): void {

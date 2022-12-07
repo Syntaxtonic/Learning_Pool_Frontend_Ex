@@ -28,4 +28,7 @@ export class UserService {
   userProfile(id: any): Observable<any> {
     return this.http.get(baseUrl+id)
   }
+  findUserByBookId(id: string): Observable<any> {
+    return this.http.get(baseUrl+`?books=${id}`)
+  }
 }
